@@ -23,6 +23,14 @@ public class Departamento implements Serializable {
     @OneToMany(mappedBy = "departamento", cascade = CascadeType.PERSIST)
     List<Empleado> empleados = new ArrayList<>();
 
+    //se añaden empleados a departamento
+    public void addE(Empleado e){
+        
+        empleados.add(e);
+        e.setDepartamento(this);
+        
+    }
+    
     public Departamento() {
     }
 
