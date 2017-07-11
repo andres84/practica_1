@@ -6,7 +6,7 @@
  http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
              version="1.0">
 
-    <persistence-unit name="conectar">
+    <persistence-unit name="practica1">
             
         <class>com.practica_1.modelo</class>
         
