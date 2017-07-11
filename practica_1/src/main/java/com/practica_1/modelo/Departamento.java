@@ -20,7 +20,7 @@ public class Departamento implements Serializable {
     @Column(name = "nombre_departamento")
     private String nombre_departamento;
 
-    @OneToMany(mappedBy = "departamento", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL, orphanRemoval = true)//orphanRemoval: indica que cuando se borre algun departamento debe ser borrado el empleado de este
     List<Empleado> empleados = new ArrayList<>();
 
     //se añaden empleados a departamento
@@ -28,6 +28,14 @@ public class Departamento implements Serializable {
         
         empleados.add(e);
         e.setDepartamento(this);
+        
+    }
+    
+    //eliminar departamentos y empleados
+    public void removeED(Empleado e){
+        
+        empleados.remove(e);
+        e.setDepartamento(null);
         
     }
     
